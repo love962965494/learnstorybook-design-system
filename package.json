@@ -1,7 +1,7 @@
 {
-  "name": "learnstorybook-design-system",
+  "name": "shenchao-learnstorybook-design-system",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@storybook/cli": "^5.3.14",
     "@testing-library/jest-dom": "^4.2.4",
@@ -16,12 +16,17 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "cross-env BABEL_ENV=production babel src -d dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
     "build-storybook-docs": "build-storybook -s public --docs"
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@storybook/addon-a11y": "^5.3.14",
     "@storybook/addon-actions": "^5.3.14",
     "@storybook/addon-docs": "^5.3.14",
@@ -48,6 +54,13 @@
     "@storybook/addons": "^5.3.14",
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.14",
+    "auto": "^9.15.8",
+    "cross-env": "^7.0.0",
     "prettier": "^1.19.1"
-  }
+  },
+  "description": "Learn Storybook design system",
+  "main": "dist/index.js",
+  "repository": "git@github.com:love962965494/learnstorybook-design-system.git",
+  "author": "shenchao <shenchao20@jd.com>",
+  "license": "MIT"
 }

@@ -11,6 +11,10 @@
 # production
 /build
 /storybook-static
+/dist
+
+# auto token
+.env
 
 # misc
 .DS_Store
