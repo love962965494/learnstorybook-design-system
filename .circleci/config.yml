@@ -11,6 +11,11 @@ jobs:
           steps:
             - run: npm install
             - run: npm test
+            - run: |
+                if [ $CIRCLE_BRANCH = "master" ]
+                then
+                   yarn release
+                fi
 workflows:
     build-and-test:
       jobs:

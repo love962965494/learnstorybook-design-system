@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "antd": "^4.0.2",
     "polished": "^3.4.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
@@ -21,7 +22,8 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "build-storybook-docs": "build-storybook -s public --docs"
+    "build-storybook-docs": "build-storybook -s public --docs",
+    "release": "auto shipit"
   },
   "babel": {
     "presets": [
@@ -56,6 +58,7 @@
     "@storybook/react": "^5.3.14",
     "auto": "^9.15.8",
     "cross-env": "^7.0.0",
+    "node-sass": "^4.13.1",
     "prettier": "^1.19.1"
   },
   "description": "Learn Storybook design system",
