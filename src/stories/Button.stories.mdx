@@ -1,0 +1,49 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks'
+import { withKnobs, select, boolean } from '@storybook/addon-knobs'
+import { action } from '@storybook/addon-actions'
+
+import { Button } from '../components'
+
+<Meta title="Design System|Button" component={Button} />
+
+# Button
+# Displays a button that can do lots of things
+
+A button can have many properties, you can specific the type property to get different type button; There are many other properties,
+keep on to get more info...
+
+<Preview withToolbar>
+  <Story name="standard" parameters={{ decorators: [withKnobs] }}>
+    <Button 
+      type="primary"
+      onClick={action('按钮被点击了')}
+      disabled={boolean('Disable', false)}
+      type={select('Type', ['primary', 'danger', 'dashed', 'ghost', 'default', 'link'])}
+    >
+      Standard
+    </Button>
+  </Story>
+</Preview>
+
+<Props of={Button} />
+
+## Usage
+
+Button is used to trigger some events. You can also use it to imitate a link.
+
+### Types
+
+6 types are supported.
+
+<Preview withToolbar>
+  <Story name="types">
+    <div>
+      <Button type="primary">Primary</Button>
+      <Button type="danger">Danger</Button>
+      <Button type="dashed">Dashed</Button>
+      <Button type="default">Default</Button>
+      <Button type="link">Link</Button>
+      <Button type="ghost">Ghost</Button>
+    </div>
+  </Story>
+</Preview> 

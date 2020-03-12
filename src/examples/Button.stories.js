@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { action } from '@storybook/addon-actions'
-import { withKnobs, select, boolean } from '@storybook/addon-knobs'
+import { withKnobs, select } from '@storybook/addon-knobs'
 
 import { Button } from './Button'
 import { Icon } from './Icon'
