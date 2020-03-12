@@ -1,0 +1,26 @@
+{
+  "auto-close-tag.activationOnLanguage": [
+    "xml",
+    "php",
+    "blade",
+    "ejs",
+    "jinja",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "plaintext",
+    "markdown",
+    "vue",
+    "liquid",
+    "erb",
+    "lang-cfml",
+    "cfml",
+    "HTML (Eex)",
+    "mdx"
+  ],
+  "[mdx]": {
+    "editor.autoClosingQuotes": "always",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

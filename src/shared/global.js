@@ -115,6 +115,8 @@ export const bodyStyles = css`
 
 export const GlobalStyle = createGlobalStyle`
  body {
+  padding: 15px;
+
    ${bodyStyles}
  }
 `;
