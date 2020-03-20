@@ -12,6 +12,7 @@
 /build
 /storybook-static
 /dist
+/scripts
 
 # auto token
 .env

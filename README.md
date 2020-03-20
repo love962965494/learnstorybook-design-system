@@ -20,7 +20,7 @@
 
 ## 脚本说明 -- package.json
 
-```json
+```js
 {
   // 开发环境，运行react项目，本项目无需使用
   "start": "react-scripts start", 

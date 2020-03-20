@@ -1,7 +1,7 @@
 const path = require('path')
 
 module.exports = {
-  stories: ['../src/Intro.stories.mdx', '../src/stories/*.stories.(js|tsx|mdx)'],
+  stories: ['../src/Intro.stories.mdx', '../src/components/**/*.stories.(js|tsx|mdx)'],
   addons: [
     '@storybook/preset-create-react-app',
     '@storybook/addon-actions',
@@ -23,19 +23,24 @@ module.exports = {
     // TODO: hack写法，通过直接找到CRA中对应规则，修改使其支持antd的按需加载，后期可以进行优化
     rule.oneOf[1].options.plugins.push([require.resolve('babel-plugin-import'), { libraryName: 'antd', style: 'css' }])
 
-    rule.oneOf.push({
+    rule.oneOf.splice(rule.oneOf.length - 1, 0, {
       test: /\.less$/,
       use: [
-        'style-loader',
-        'css-loader',
+        require.resolve('style-loader'),
+        // path.resolve(__dirname, 'extract-css-loader.js'),
         {
-          loader: 'less-loader',
+          loader: require.resolve('css-loader'),
           options: {
-            javascriptEnabled: true
-          }
-        }
+              importLoaders: 3
+          },
+        },
+        require.resolve('less-loader'),
       ]
     })
+
+    // config.resolveLoader.modules = [...config.resolveLoader.modules, [path.join(__dirname, './extract-css-loader'), 'node_modules']]
+
+    // console.log('resolveLoader: ', config.resolveLoader)
 
     config.module.rules.push({
       test: /\.stories\.tsx?$/,
