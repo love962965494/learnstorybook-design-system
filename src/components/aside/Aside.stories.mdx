@@ -1,0 +1,18 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks'
+
+import Aside from './Aside'
+
+<Meta title="Design System|Aside" component={Aside} />
+
+# Aside
+# Aside with menus, so we can convinent manage our project. 
+
+With auth, you can restrict users access to specific functionality.
+
+<Preview withToolbar>
+  <Story name="standard">
+    <Aside title="Storybook Learning" />
+  </Story>
+</Preview>
+
+<Props of={Aside} />

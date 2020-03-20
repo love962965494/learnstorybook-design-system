@@ -2,6 +2,7 @@ import React from 'react'
 import { Button as AntdButton } from 'antd'
 import { ButtonProps as AntdButtonProps } from 'antd/lib/button'
 import './style/test.less'
+// import './test.scss'
 import PropTypes from 'prop-types'
 
 type ButtonProps = AntdButtonProps & {
