@@ -22,7 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "debug-storybook": "node --inspect-brk=5555 ./node_modules/@storybook/react/bin/index.js -p 9009 -s public ",
+    "debug-storybook": "node --inspect-brk ./node_modules/@storybook/react/bin/index.js -p 9009 -s public ",
     "build-storybook": "build-storybook -s public",
     "build-storybook-docs": "build-storybook -s public --docs",
     "release": "auto shipit"
@@ -32,8 +32,58 @@
       "react-app"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.(js|ts|tsx)": [
+      "eslint --max-warnings=-1",
+      "prettier --write"
+    ],
+    "src/**/*.less": [
+      "stylelint --fix",
+      "prettier --write"
+    ]
+  },
   "eslintConfig": {
-    "extends": "react-app"
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "react-app",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": [
+      "@typescript-eslint",
+      "react"
+    ],
+    "rules": {
+      "@typescript-eslint/member-delimiter-style": [
+        "error",
+        {
+          "multiline": {
+            "delimiter": "none",
+            "requireLast": true
+          },
+          "singleline": {
+            "delimiter": "semi",
+            "requireLast": false
+          }
+        }
+      ]
+    }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard"
+  },
+  "prettier": {
+    "semi": false,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "printWidth": 120,
+    "endOfLine": "auto",
+    "arrowParens": "avoid"
   },
   "browserslist": {
     "production": [
@@ -61,12 +111,20 @@
     "@storybook/react": "^5.3.14",
     "@types/prop-types": "^15.7.3",
     "@types/styled-components": "^5.0.1",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
     "auto": "^9.15.8",
     "babel-plugin-import": "^1.13.0",
     "cross-env": "^7.0.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
     "less-loader": "^5.0.0",
-    "node-sass": "^4.13.1",
-    "prettier": "^1.19.1",
+    "lint-staged": "^10.0.9",
+    "prettier": "^2.0.2",
+    "stylelint": "^13.2.1",
+    "stylelint-config-standard": "^20.0.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.8.3"
   },

@@ -21,26 +21,27 @@ module.exports = {
     const rule = config.module.rules.find(rule => Object.keys(rule).includes('oneOf'))
 
     // TODO: hack写法，通过直接找到CRA中对应规则，修改使其支持antd的按需加载，后期可以进行优化
-    rule.oneOf[1].options.plugins.push([require.resolve('babel-plugin-import'), { libraryName: 'antd', style: 'css' }])
+    rule.oneOf[1].options.plugins.push([require.resolve('babel-plugin-import'), { libraryName: 'antd', style: true }])
 
     rule.oneOf.splice(rule.oneOf.length - 1, 0, {
       test: /\.less$/,
       use: [
         require.resolve('style-loader'),
-        // path.resolve(__dirname, 'extract-css-loader.js'),
         {
           loader: require.resolve('css-loader'),
           options: {
-              importLoaders: 3
-          },
+            importLoaders: 3
+          }
         },
-        require.resolve('less-loader'),
+        {
+          loader: require.resolve('less-loader'),
+          options: {
+            javascriptEnabled: true,
+            sourceMap: true
+          }
+        }
       ]
     })
-
-    // config.resolveLoader.modules = [...config.resolveLoader.modules, [path.join(__dirname, './extract-css-loader'), 'node_modules']]
-
-    // console.log('resolveLoader: ', config.resolveLoader)
 
     config.module.rules.push({
       test: /\.stories\.tsx?$/,
@@ -52,6 +53,13 @@ module.exports = {
       ],
       enforce: 'pre'
     })
+
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      ...{
+        neco: path.join(process.cwd(), 'src/index')
+      }
+    }
 
     return config
   }

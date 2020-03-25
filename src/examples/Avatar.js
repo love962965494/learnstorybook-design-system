@@ -10,7 +10,7 @@ export const sizes = {
   large: 40,
   medium: 28,
   small: 20,
-  tiny: 16
+  tiny: 16,
 }
 
 const Image = styled.div`
@@ -124,9 +124,7 @@ export function Avatar({ loading, username, src, size, ...props }) {
 
   return (
     <Image size={size} loading={loading} src={src} {...a11yProps} {...props}>
-      <span className="test">
-        哈哈哈
-      </span>
+      <span className="test">哈哈哈</span>
       {avatarFigure}
     </Image>
   )
@@ -148,12 +146,12 @@ Avatar.propTypes = {
   /**
    Avatar comes in four sizes. In most cases, you’ll be fine with `medium`. 
   */
-  size: PropTypes.oneOf(Object.keys(sizes))
+  size: PropTypes.oneOf(Object.keys(sizes)),
 }
 
 Avatar.defaultProps = {
   loading: false,
   username: 'loading',
   src: null,
-  size: 'medium'
+  size: 'medium',
 }
