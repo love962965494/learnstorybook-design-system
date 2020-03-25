@@ -2,12 +2,12 @@ import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks'
 import { withKnobs, select, boolean } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import Button from './Button'
+import { Button } from 'neco'
 
 <Meta title="Design System|Button" component={Button} />
 
 # Button
-# Displays a button that can do lots of things
+## Displays a button that can do lots of things
 
 A button can have many properties, you can specific the type property to get different type button; There are many other properties,
 keep on to get more info...
@@ -47,3 +47,9 @@ Button is used to trigger some events. You can also use it to imitate a link.
     </div>
   </Story>
 </Preview> 
+
+<style>
+  {`[id^=story--design-system-button] .ant-btn {
+    margin: 0 15px 15px 0;
+  }`}
+</style>

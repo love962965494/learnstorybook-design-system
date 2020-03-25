@@ -2,7 +2,7 @@
 
 ## 项目说明
 该项目是一个基于 [react](https://reactjs.org/) 的UI组件库，提供满足多种业务场景的UI组件。  
-项目基于[storybook](https://storybook.js.org/)框架开发，主要开发语言为[typescripte](https://www.typescriptlang.org/)。
+项目基于[storybook](https://storybook.js.org/)框架开发，主要开发语言为[typescript](https://www.typescriptlang.org/)。
 
 ## 目录结构
 ```
