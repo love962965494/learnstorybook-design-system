@@ -18,7 +18,8 @@
     "strictNullChecks": true,
     "noImplicitAny": true,
     "noUnusedParameters": true,
-    "noEmit": true
+    "noEmit": true,
+    "noImplicitReturns": false
   },
   "include": ["src"]
 }

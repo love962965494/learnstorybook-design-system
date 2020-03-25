@@ -10,11 +10,9 @@ type ButtonProps = AntdButtonProps & {
   test?: string
 }
 
-const Button: FC<ButtonProps> = (props, a: number) => {
+const Button: FC<ButtonProps> = props => {
   return <AntdButton {...props}>{props.children + ' ' + (props.test || '')}</AntdButton>
 }
-
-export default Button
 
 Button.propTypes = {
   /**
@@ -30,3 +28,5 @@ Button.propTypes = {
 Button.defaultProps = {
   type: 'primary',
 }
+
+export default Button
