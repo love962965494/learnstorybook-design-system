@@ -11,9 +11,13 @@
 |-- public                   # 公共资源
 |-- src                      # 项目源代码
 |   |-- components           # 公共组件
+|   |   |-- 。。。
+|   |   |-- _utils           # 公共方法
+|   |   |-- _hooks           # 自定义hooks
+|   |   |-- style            # 组件样式
+|   |   |-- store.ts         # 组件状态管理
+|   |   |-- .stories.mdx     # 组件故事
 |   |-- examples             # 示例组件代码，开发学习使用
-|   |-- shared               # 公共样式文件
-|   |-- stories              # 组件故事
 |   |-- index.js             # 入口文件，打包入口
 |   |-- Into.stories.mdx     # 介绍页
 ```       

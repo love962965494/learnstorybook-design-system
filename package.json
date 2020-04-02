@@ -3,12 +3,14 @@
   "version": "0.1.1",
   "private": false,
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.8.3",
     "@storybook/cli": "^5.3.14",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "antd": "^4.0.2",
     "less": "^3.11.1",
+    "mobx": "^5.15.4",
     "polished": "^3.4.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
@@ -26,11 +28,6 @@
     "build-storybook": "build-storybook -s public",
     "build-storybook-docs": "build-storybook -s public --docs",
     "release": "auto shipit"
-  },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
   },
   "husky": {
     "hooks": {
@@ -52,7 +49,8 @@
     "extends": [
       "plugin:@typescript-eslint/recommended",
       "react-app",
-      "plugin:prettier/recommended"
+      "plugin:prettier/recommended",
+      "plugin:mdx/recommended"
     ],
     "plugins": [
       "@typescript-eslint",
@@ -110,6 +108,7 @@
     "@storybook/addons": "^5.3.14",
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.14",
+    "@types/mockjs": "^1.0.2",
     "@types/prop-types": "^15.7.3",
     "@types/styled-components": "^5.0.1",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
@@ -119,10 +118,12 @@
     "cross-env": "^7.0.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-mdx": "^1.6.8",
     "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.2.3",
     "less-loader": "^5.0.0",
     "lint-staged": "^10.0.9",
+    "mockjs": "^1.1.0",
     "prettier": "^2.0.2",
     "stylelint": "^13.2.1",
     "stylelint-config-standard": "^20.0.0",

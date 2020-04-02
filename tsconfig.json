@@ -19,7 +19,8 @@
     "noImplicitAny": true,
     "noUnusedParameters": true,
     "noEmit": true,
-    "noImplicitReturns": false
+    "noImplicitReturns": false,
+    "experimentalDecorators": true
   },
   "include": ["src"]
 }
