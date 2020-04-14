@@ -21,7 +21,7 @@ module.exports = {
     const rule = config.module.rules.find(rule => Object.keys(rule).includes('oneOf'))
 
     // TODO: hack写法，通过直接找到CRA中对应规则，修改使其支持antd的按需加载，后期可以进行优化
-    rule.oneOf[1].options.plugins.push([require.resolve('babel-plugin-import'), { libraryName: 'antd', style: true }])
+    // rule.oneOf[1].options.plugins.push([require.resolve('babel-plugin-import'), { libraryName: 'antd', style: true }])
 
     rule.oneOf.splice(rule.oneOf.length - 1, 0, {
       test: /\.less$/,
