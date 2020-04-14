@@ -7,6 +7,7 @@ import { Button } from 'neco'
 <Meta title="Design System|Button" component={Button} />
 
 # Button
+
 ## Displays a button that can do lots of things
 
 A button can have many properties, you can specific the type property to get different type button; There are many other properties,
@@ -14,7 +15,7 @@ keep on to get more info...
 
 <Preview withToolbar>
   <Story name="standard" parameters={{ decorators: [withKnobs] }}>
-    <Button 
+    <Button
       type="primary"
       onClick={action('按钮被点击了')}
       disabled={boolean('Disable', false)}
@@ -46,7 +47,7 @@ Button is used to trigger some events. You can also use it to imitate a link.
       <Button type="ghost">Ghost</Button>
     </div>
   </Story>
-</Preview> 
+</Preview>
 
 <style>
   {`[id^=story--design-system-button] .ant-btn {

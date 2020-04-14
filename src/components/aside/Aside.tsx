@@ -48,7 +48,7 @@ const Aside: FC<AsideProps> = props => {
   }
 
   return (
-    <Sider className="neko-aside">
+    <Sider className="neco-aside">
       <div className="logo">{title}</div>
       <Menu theme="dark" mode="inline">
         {renderMenus(menus)}

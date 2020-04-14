@@ -9,7 +9,8 @@
 /coverage
 
 # production
-/build
+/es
+/lib
 /storybook-static
 /dist
 /scripts

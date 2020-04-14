@@ -9,6 +9,7 @@
 |-- .circleci                # circle-ci相关配置  
 |-- .storybook               # storybook相关配置
 |-- public                   # 公共资源
+|-- build                    # 编译脚本相关
 |-- src                      # 项目源代码
 |   |-- components           # 公共组件
 |   |   |-- 。。。
