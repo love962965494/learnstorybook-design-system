@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "assets": ["src/assets/*"],
+    },
     "target": "es6",
     "lib": [
       "dom",

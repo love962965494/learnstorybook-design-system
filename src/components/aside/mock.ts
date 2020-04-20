@@ -1,8 +1,6 @@
 import Mock from 'mockjs'
 import { AsideModel, MenuProps } from './Aside'
 
-console.log('AsideModel: ', AsideModel)
-
 class Model implements AsideModel {
   public async getMenus() {
     const { menus } = await Mock.mock({
