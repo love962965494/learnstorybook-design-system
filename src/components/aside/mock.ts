@@ -7,10 +7,12 @@ class Model implements AsideModel {
       'menus|1-5': [
         {
           id: '@increment',
+          path: '',
           menuName: '@cname',
           'children|0-4': [
             {
               id: '@increment',
+              path: '',
               menuName: '@cname',
             },
           ],

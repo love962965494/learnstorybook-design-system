@@ -1,23 +1,42 @@
-import React, { FC, useState, useContext } from 'react'
+import React, { useState, ReactNode } from 'react'
 import { Layout, Menu } from 'antd'
-import PropTypes from 'prop-types'
 import { useCancel } from '../_hooks'
-import { ConfigContext } from '../config-provider'
-import classNames from 'classnames'
+import { MailOutlined } from '@ant-design/icons'
+import logo from '../../assets/logo.png'
+import { Link } from 'react-router-dom'
+import useClasses from '../_hooks/useClasses'
 
 const { Sider } = Layout
 const { Item: MenuItem, SubMenu } = Menu
 
 interface AsideProps {
-  logo?: string
+  /**
+   * 项目标题
+   */
   title: string
+  /**
+   * 用户自定义样式名
+   */
   className?: string
+  /**
+   * 侧边栏是否收缩
+   */
+  collapsed?: boolean
+  /**
+   * 处理侧边栏响应式事件
+   */
+  // onBreakPoint: (broken: boolean) => void
+  /**
+   * 侧边栏相关model
+   */
   model: AsideModel
 }
 
 export interface MenuProps {
   id: string
+  path: string
   menuName: string
+  icon: ReactNode
   children: MenuProps[]
 }
 
@@ -25,74 +44,71 @@ export interface AsideModel {
   getMenus(): Promise<MenuProps[]>
 }
 
-const Aside: FC<AsideProps> = props => {
+export default function Aside(props: AsideProps) {
   const {
-    logo,
     title,
+    className = '',
+    collapsed = false,
+    // onBreakPoint,
     model: { getMenus },
-    className,
   } = props
   const [menus, setMenus] = useState<MenuProps[]>([])
 
-  const { getPrefixCls } = useContext(ConfigContext)
-  const prefixCls = getPrefixCls('aside')
-
-  const classes = classNames(prefixCls, className)
+  const { prefixCls, classes } = useClasses('aside', className)
 
   useCancel(getMenus, menus => {
     setMenus(menus)
   })
 
-  const renderMenus = (menus: MenuProps[]) => {
+  const renderMenus = (menus: MenuProps[], isParent = true) => {
     return menus.map(menu => {
+      const Icon = (menu.icon || MailOutlined) as React.ComponentClass
+
       if (menu.children && menu.children.length > 0) {
         return (
-          <SubMenu key={menu.id} title={menu.menuName}>
-            {renderMenus(menu.children)}
+          <SubMenu
+            key={menu.id}
+            title={
+              <Link to={menu.path} style={{ color: '#fff' }}>
+                {isParent && <Icon />}
+                {collapsed ? null : menu.menuName}
+              </Link>
+            }
+          >
+            {renderMenus(menu.children, false)}
           </SubMenu>
         )
       } else {
-        return <MenuItem key={menu.id}>{menu.menuName}</MenuItem>
+        return (
+          <MenuItem key={menu.id}>
+            <Link to={menu.path} style={{ color: '#fff' }}>
+              {isParent && <Icon />}
+              {isParent && collapsed ? null : menu.menuName}
+            </Link>
+          </MenuItem>
+        )
       }
     })
   }
 
   return (
-    <Sider className={classes}>
+    <Sider
+      width="256"
+      collapsible
+      trigger={null}
+      breakpoint="lg"
+      collapsedWidth="0"
+      className={classes}
+      collapsed={collapsed}
+      // onBreakpoint={onBreakPoint}
+    >
       <div className={`${prefixCls}-logo`}>
-        <a href="/">
-          <img src={logo} alt={title} />
-          <h1>{title}</h1>
-        </a>
+        <img src={logo} alt={title} />
+        {!collapsed && <span>{title}</span>}
       </div>
       <Menu theme="dark" mode="inline">
         {renderMenus(menus)}
       </Menu>
     </Sider>
   )
-}
-
-export default Aside
-
-Aside.propTypes = {
-  /**
-   * 项目logo
-   */
-  logo: PropTypes.string,
-  /**
-   * 项目标题
-   */
-  title: PropTypes.string.isRequired,
-  /**
-   * 自定义class-name
-   */
-  className: PropTypes.string,
-  /**
-   * 业务处理相关model
-   */
-  model: PropTypes.any.isRequired,
-}
-
-Aside.defaultProps = {
-  title: '',
 }

@@ -7,7 +7,7 @@ import { withA11Y } from '@storybook/addon-a11y'
 function GlobalStyle() {
   return (
     <style>
-      {`body { padding: 15px; }`}
+      {/* {`body { padding: 15px; }`} */}
     </style>
   )
 }
