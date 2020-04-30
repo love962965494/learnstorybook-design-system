@@ -1,6 +1,10 @@
 import React from 'react'
 import Aside from './Aside'
 import AsideModel from './mock'
-import logo from '../../assets/logo.jpg'
+import { StaticRouter } from 'react-router-dom'
 
-export const StandardAside = () => <Aside logo={logo} title="Neco" model={AsideModel} />
+export const StandardAside = () => (
+  <StaticRouter>
+    <Aside title="Neco" model={AsideModel} />
+  </StaticRouter>
+)

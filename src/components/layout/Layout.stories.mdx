@@ -1,0 +1,24 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks'
+import Layout from './Layout'
+import { StandardLayout } from './Layout.stories'
+
+<Meta title="Design System|Layout" component={Layout} />
+
+# Layout
+
+## 项目框架组件，使用后，自动生成框架布局，自动生成带菜单功能的侧边栏、header、footer等.
+
+<Preview withToolbar>
+  <Story name="standard">
+    <StandardLayout />
+  </Story>
+</Preview>
+
+<Props of={Layout} />
+
+
+<style>
+  {`[id^=story--design-system-layout] .neco-aside {
+    height: 50vh;
+  }`}
+</style>
