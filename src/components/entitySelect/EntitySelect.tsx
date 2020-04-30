@@ -7,6 +7,9 @@ import { Select } from 'antd'
 //   productCode: string
 // }
 
+interface GetA {
+  <S>(arg: S): void
+}
 interface Permeation {
   /**
    * 下拉列表key
@@ -27,15 +30,15 @@ interface Permeation {
   /**
    * 联动查询时,变化即更新重新获取数据的字段值
    */
-  inputs?: Array<any>
+  inputs?: Array<string | number>
   /**
    * 下拉列表选中回调
    */
-  onSelect?: (arg: any) => any
+  onSelect?: <T>(arg: T) => void
   /**
    * 下拉列表选择项变化回调
    */
-  onChange?: any
+  onChange?: <T>(arg: T) => void
 }
 export default class EntitySelect extends Component<Permeation> {
   public isMount: boolean
@@ -54,7 +57,7 @@ export default class EntitySelect extends Component<Permeation> {
     allOptions: [],
   }
 
-  componentDidUpdate(prevProps: any): void {
+  componentDidUpdate(prevProps: Permeation): void {
     const oldInputs = prevProps.inputs || []
     const newInputs = this.props.inputs || []
     for (let i = 0; i < newInputs.length; i++) {
@@ -100,7 +103,7 @@ export default class EntitySelect extends Component<Permeation> {
     this.isMount = false
   }
 
-  onTSelect = (value: unknown) => {
+  onTSelect: GetA = value => {
     const { onSelect, valueField } = this.props
     const { allOptions } = this.state
     const item = allOptions.find(i => i[valueField] === value)
