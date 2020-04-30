@@ -1,38 +1,7 @@
 import Mock from 'mockjs'
-import { MenuDataItem } from '@ant-design/pro-layout'
 import { LayoutModel, MenuItemProps } from './Layout'
 
 class Model implements LayoutModel {
-  // public async getMenus() {
-  //   const { menus } = (await Mock.mock({
-  //     'menus|1-5': [
-  //       {
-  //         id: '@increment',
-  //         path: /\/[a-z][A-Z][0-9]/,
-  //         name: '@cname',
-  //         'children|1-4': [
-  //           {
-  //             id: '@increment',
-  //             path: /\/[a-z][A-Z][0-9]/,
-  //             name: '@cname',
-  //             // children: [],
-  //           },
-  //         ],
-  //       },
-  //     ],
-  //   })) as { menus: MenuDataItem[] }
-
-  //   return menus.map(menu => {
-  //     if (menu.children) {
-  //       for (const child of menu.children) {
-  //         child.path = menu.path! + child.path
-  //       }
-  //     }
-
-  //     return menu
-  //   })
-  // }
-
   public async getMenus() {
     const root: MenuItemProps = {
       dataLimit: null,

@@ -23,6 +23,7 @@
     "strictNullChecks": true,
     "noImplicitAny": true,
     "noUnusedParameters": true,
+    "noUnusedLocals": true,
     "noImplicitReturns": false,
     "experimentalDecorators": true,
     "declaration": true,
