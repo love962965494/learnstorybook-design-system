@@ -1,0 +1,21 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks'
+import EntitySelect from './EntitySelect'
+import { StandardEntitySelect } from './EntitySelect.stories'
+
+<Meta title="Design System|EntitySelect" component={EntitySelect} />
+
+# EntitySelect
+
+# EntitySelect with export, so we can convinent manage our project.
+
+With auth, you can restrict users access to specific functionality.
+
+<Preview withToolbar>
+  <Story name="EntitySelect">
+    <StandardEntitySelect />
+  </Story>
+</Preview>
+
+<Props of={EntitySelect} />
+
+

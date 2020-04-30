@@ -1,0 +1,21 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks'
+import ExportBtn from './ExportBtn'
+import { StandardExportBtn } from './ExportBtn.stories'
+
+<Meta title="Design System|ExportBtn" component={ExportBtn} />
+
+# ExportBtn
+
+# ExportBtn with export, so we can convinent manage our project.
+
+With auth, you can restrict users access to specific functionality.
+
+<Preview withToolbar>
+  <Story name="export">
+    <StandardExportBtn />
+  </Story>
+</Preview>
+
+<Props of={ExportBtn} />
+
+
