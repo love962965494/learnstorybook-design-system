@@ -25,7 +25,7 @@ interface AsideProps {
   /**
    * 处理侧边栏响应式事件
    */
-  onBreakPoint: (broken: boolean) => void
+  // onBreakPoint: (broken: boolean) => void
   /**
    * 侧边栏相关model
    */
@@ -49,7 +49,7 @@ export default function Aside(props: AsideProps) {
     title,
     className = '',
     collapsed = false,
-    onBreakPoint,
+    // onBreakPoint,
     model: { getMenus },
   } = props
   const [menus, setMenus] = useState<MenuProps[]>([])
@@ -100,7 +100,7 @@ export default function Aside(props: AsideProps) {
       collapsedWidth="0"
       className={classes}
       collapsed={collapsed}
-      onBreakpoint={onBreakPoint}
+      // onBreakpoint={onBreakPoint}
     >
       <div className={`${prefixCls}-logo`}>
         <img src={logo} alt={title} />
