@@ -54,6 +54,8 @@
   },
   "lint-staged": {
     "src/**/*.(js|ts|tsx)": [
+      "prettier --write",
+      "eslint --quiet",
       "prettier --write"
     ],
     "src/**/*.less": [
