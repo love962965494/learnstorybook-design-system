@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ProLayout, { MenuDataItem, BasicLayoutProps, PageHeaderWrapper } from '@ant-design/pro-layout'
 import useClasses from '../_hooks/useClasses'
-// import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.png'
 import { useCancel } from '../_hooks'
 import { Link } from 'react-router-dom'
 import { MailOutlined } from '@ant-design/icons'
@@ -136,7 +136,7 @@ export default function Layout(props: LayoutProps) {
 
   return (
     <ProLayout
-      // logo={logo}
+      logo={logo}
       title={title}
       className={classes}
       collapsed={collapsed}

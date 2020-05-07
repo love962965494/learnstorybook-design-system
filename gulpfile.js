@@ -79,7 +79,7 @@ function compile(modules) {
 
   let hasError = false
 
-  const source = ['src/components/**/*.tsx', 'src/components/**/*.ts', 'src/components/**/*.d.ts']
+  const source = ['src/components/**/*.tsx', 'src/components/**/*.ts', 'src/components/**/*.d.ts', 'src/typings/**/*.d.ts']
 
   if (tsConfig.allowJs) {
     source.unshift('src/components/**/*.jsx')
