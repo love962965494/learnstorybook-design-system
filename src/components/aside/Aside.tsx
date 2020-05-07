@@ -1,10 +1,11 @@
-import React, { useState, ReactNode } from 'react'
+import React, { useState, ReactNode, useContext } from 'react'
 import { Layout, Menu } from 'antd'
 import { useCancel } from '../_hooks'
 import { MailOutlined } from '@ant-design/icons'
 import logo from '../../assets/logo.png'
 import { Link } from 'react-router-dom'
 import useClasses from '../_hooks/useClasses'
+import { AsideContext } from './store'
 
 const { Sider } = Layout
 const { Item: MenuItem, SubMenu } = Menu
@@ -45,6 +46,10 @@ export interface AsideModel {
 }
 
 export default function Aside(props: AsideProps) {
+  const { asideTitle } = useContext(AsideContext)
+
+  console.log(asideTitle)
+
   const {
     title,
     className = '',
