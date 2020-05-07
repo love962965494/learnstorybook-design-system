@@ -24,6 +24,8 @@ module.exports = function (modules) {
       },
     ],
     resolve('@babel/plugin-proposal-class-properties'),
+    resolve('@babel/plugin-proposal-optional-chaining'),
+    resolve('@babel/plugin-proposal-nullish-coalescing-operator')
   ]
 
   return {

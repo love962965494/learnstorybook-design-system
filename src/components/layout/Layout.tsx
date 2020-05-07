@@ -60,8 +60,7 @@ export interface LayoutModel {
 }
 
 function format(menus: MenuItemProps[]): MenuDataItem[] {
-  const rootMenu = menus.find(menu => menu.parentId === 0)
-  const rootId = rootMenu && rootMenu.id
+  const rootId = menus.find(menu => menu.parentId === 0)?.id
 
   const menuDataArray: Array<MenuDataItem & { parentId: number; children: MenuDataItem[] }> = [...menus]
     .filter(menu => menu.parentId !== 0)
@@ -89,9 +88,7 @@ function format(menus: MenuItemProps[]): MenuDataItem[] {
   for (const menu of menuDataArray) {
     const parentMenu = formatMenus.find(item => item.id === menu.parentId)
 
-    if (parentMenu) {
-      parentMenu.children.push(menu)
-    }
+    parentMenu?.children.push(menu)
   }
 
   return formatMenus

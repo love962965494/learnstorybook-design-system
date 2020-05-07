@@ -42,9 +42,7 @@ class Model implements LayoutModel {
     for (const menu of menus) {
       const parentMenu = menus.find(item => item.id === menu.parentId)
 
-      if (parentMenu) {
-        menu.menuUri = parentMenu.menuUri + menu.menuUri
-      }
+      menu.menuUri = parentMenu?.menuUri + menu.menuUri
     }
 
     return [root, ...menus]
