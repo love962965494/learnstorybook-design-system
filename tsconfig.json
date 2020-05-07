@@ -1,9 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "paths": {
-      "assets": ["src/assets/*"]
-    },
     "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": false,
@@ -22,7 +19,6 @@
     "noImplicitReturns": false,
     "experimentalDecorators": true,
     "declaration": true,
-    "isolatedModules": true,
     "noEmit": true
   },
   "exclude": ["node_modules", "lib", "es"],
