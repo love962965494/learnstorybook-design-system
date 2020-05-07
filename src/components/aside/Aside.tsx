@@ -2,7 +2,7 @@ import React, { useState, ReactNode, useContext } from 'react'
 import { Layout, Menu } from 'antd'
 import { useCancel } from '../_hooks'
 import { MailOutlined } from '@ant-design/icons'
-import logo from '../../assets/logo.png'
+// import logo from '../../assets/logo.png'
 import { Link } from 'react-router-dom'
 import useClasses from '../_hooks/useClasses'
 import { AsideContext } from './store'
@@ -108,7 +108,7 @@ export default function Aside(props: AsideProps) {
       // onBreakpoint={onBreakPoint}
     >
       <div className={`${prefixCls}-logo`}>
-        <img src={logo} alt={title} />
+        {/* <img src={logo} alt={title} /> */}
         {!collapsed && <span>{title}</span>}
       </div>
       <Menu theme="dark" mode="inline">
