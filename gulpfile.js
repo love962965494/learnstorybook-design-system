@@ -79,7 +79,7 @@ function compile(modules) {
 
   let hasError = false
 
-  const source = ['src/components/**/*.tsx', 'src/components/**/*.ts', 'src/components/**/*.d.ts']
+  const source = ['src/components/**/*.tsx', 'src/components/**/*.ts', 'src/components/**/*.d.ts', 'src/typings/**/*.d.ts']
 
   if (tsConfig.allowJs) {
     source.unshift('src/components/**/*.jsx')
@@ -98,13 +98,16 @@ function compile(modules) {
       })
     )
     .pipe(
-      ts(tsConfig, {
-        error(err) {
-          ts.reporter.defaultReporter().error(err)
-          hasError = true
-        },
-        finish: ts.reporter.defaultReporter().finish,
-      })
+      ts(
+        { ...tsConfig, noEmit: false, isolatedModules: false },
+        {
+          error(err) {
+            ts.reporter.defaultReporter().error(err)
+            hasError = true
+          },
+          finish: ts.reporter.defaultReporter().finish,
+        }
+      )
     )
 
   function check() {
