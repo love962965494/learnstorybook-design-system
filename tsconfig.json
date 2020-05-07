@@ -19,6 +19,7 @@
     "noImplicitReturns": false,
     "experimentalDecorators": true,
     "declaration": true,
+    "isolatedModules": true,
     "noEmit": true
   },
   "exclude": ["node_modules", "lib", "es"],
