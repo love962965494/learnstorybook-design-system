@@ -52,13 +52,13 @@
     }
   },
   "lint-staged": {
-    "src/**/*.(js|ts|tsx)": [
+    "src/**/*.(ts|tsx)": [
       "eslint --max-warnings=-1",
-      "prettier --write"
+      "npx prettier --write"
     ],
     "src/**/*.less": [
       "stylelint --fix",
-      "prettier --write"
+      "npx prettier --write"
     ]
   },
   "eslintConfig": {
