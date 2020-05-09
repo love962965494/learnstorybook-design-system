@@ -11,7 +11,11 @@ type ButtonProps = AntdButtonProps & {
 }
 
 const Button: FC<ButtonProps> = props => {
-  return <AntdButton {...props}>{props.children + ' ' + (props.test || '')}</AntdButton>
+  return (
+    <AntdButton {...props} className="test">
+      {props.children + ' ' + (props.test || '')}
+    </AntdButton>
+  )
 }
 
 Button.propTypes = {

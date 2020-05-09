@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import ProLayout, { MenuDataItem, BasicLayoutProps, PageHeaderWrapper } from '@ant-design/pro-layout'
+import React, { useState, ReactNode } from 'react'
+import ProLayout, { MenuDataItem, BasicLayoutProps } from '@ant-design/pro-layout'
 import useClasses from '../_hooks/useClasses'
 import logo from '../../assets/logo.png'
 import { useCancel } from '../_hooks'
@@ -53,9 +53,13 @@ export interface LayoutProps {
    * 组件需要的model
    */
   model: LayoutModel
+  children?: ReactNode[]
 }
 
 export interface LayoutModel {
+  /**
+   * 获取菜单数据的方法
+   */
   getMenus: () => Promise<MenuItemProps[]>
 }
 
@@ -148,9 +152,7 @@ export default function Layout(props: LayoutProps) {
         pathname: test,
       }}
     >
-      <PageHeaderWrapper content="いらっしゃいませ">
-        <div>こんにちは</div>
-      </PageHeaderWrapper>
+      {props.children}
     </ProLayout>
   )
 }
