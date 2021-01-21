@@ -22,7 +22,7 @@
     "@testing-library/user-event": "^7.1.2",
     "babel-plugin-inline-import-data-uri": "^1.0.1",
     "classnames": "^2.2.6",
-    "immer": "^6.0.3",
+    "immer": "^8.0.1",
     "less": "^3.11.1",
     "mobx": "^5.15.4",
     "polished": "^3.4.4",
